@@ -58,7 +58,15 @@ var objContains = function(obj, prop, value){
 // [Para más información del método: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/isArray]
 
 var countArray = function(array){
-  
+  var suma=0;
+  for(arr of array) {
+    if(!Array.isArray(arr)) {
+      suma += arr;
+    } else {
+      suma += countArray(arr);
+    }
+  }
+  return suma;
 }
 
 // ---------------------
@@ -78,7 +86,14 @@ var countArray = function(array){
 //    lista.size(); --> 3
 
 LinkedList.prototype.size = function(){
- 
+  if (this.head === null) {
+    return 0;
+  }
+  if(this.head.next === null) {
+    return 1;
+  } else {
+    return 1 + this.head.next.size();
+  }
 }
 
 
