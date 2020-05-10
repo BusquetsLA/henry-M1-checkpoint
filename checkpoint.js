@@ -131,20 +131,19 @@ LinkedList.prototype.size = function(){
 //    sin antes tener cargada la posición 0 y 1.
 
 LinkedList.prototype.addInPos = function(pos, value){
-  var node = new Node(value);
-  var size = this.size();
-  var current = this.head;
-  var count = 0;
-  do {
-    if(count === pos) {
+  var nodo = new Node(value);
+  cont = 0;
+  current = this.head;
+	while(current){
+    if(cont === pos) {
       var aux = current;
-      current.next = node;
+      current = nodo;
+      current.next = aux;
       return true;
     }
-    count++;
-    current = current.next;
-  } while(pos<size)
-
+		current = current.next;
+    cont++;
+  }
   return false;
 }
 
@@ -156,10 +155,7 @@ LinkedList.prototype.addInPos = function(pos, value){
 //    Lista nueva luego de aplicar el reverse: Head --> 13 --> 10 --> 4 --> 1 --> null
 
 LinkedList.prototype.reverse = function(){
-  if(this.head !== null) {
-    var size = this.size();
-    
-  }
+  
 }
 
 
@@ -191,13 +187,7 @@ LinkedList.prototype.reverse = function(){
 
 var cardGame = function(mazoUserA, mazoUserB){
   var queque = new Queue();
-  for(var a of mazoUserA) {
-    for(var b of mazoUserB) {
-      if(a === b) {
-        queque.dequeue();
-      } 
-    }
-  }
+  
 }
 
 // ---------------
@@ -224,18 +214,12 @@ var generateBST = function(array){
   // for(var arr of array) {
   //   if(arr < this.value){
   //     if(this.left === null){
-  //       var newTree = new BinarySearchTree(arr);
-  //       this.left = newTree;
-  //     } else {
   //       this.left.insert(arr);
-  //     }
+  //     } 
   //   } else {
   //     if(this.right === null){
-  //       var newTree = new BinarySearchTree(arr);
-  //       this.right = newTree;
-  //     } else {
   //       this.right.insert(arr);
-  //     }
+  //     } 
   //   }
   // }
   // return tree;
