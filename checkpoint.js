@@ -43,7 +43,15 @@ const {
 // allí la recursión
 
 var objContains = function(obj, prop, value){
- 
+  for (ob in obj) {
+    if(ob === prop && obj[ob] === value) {
+      return true;
+    }
+    if (typeof obj[ob] === 'object') {
+      return objContains(obj[ob], prop, value);
+    } 
+  }
+  return false;
 }
 
 
@@ -87,13 +95,15 @@ var countArray = function(array){
 
 LinkedList.prototype.size = function(){
   if (this.head === null) {
+    console.log('estoy aca');
     return 0;
   }
-  if(this.head.next === null) {
-    return 1;
-  } else {
-    return 1 + this.head.next.size();
-  }
+  // if(this.head.next !== null) {
+    
+  //   return 1 + size();
+  // } else {
+  //   return 1;
+  // }
 }
 
 
