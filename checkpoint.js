@@ -94,9 +94,20 @@ var countArray = function(array){
 //    lista.size(); --> 3
 
 LinkedList.prototype.size = function(){
-  if (this.head === null) {
-    console.log('estoy aca');
+  // lista vacía
+  if(this.head === null) {
     return 0;
+  } 
+  if(this.head.next === null) {
+    return 1;
+  } else {
+    var num = 1;
+    var tailActual = this.head;
+    while (tailActual.next !== null) {
+      tailActual = tailActual.next;
+      num++;
+    }
+    return num;
   }
   // if(this.head.next !== null) {
     
