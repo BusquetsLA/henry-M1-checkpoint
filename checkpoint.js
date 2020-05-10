@@ -98,23 +98,19 @@ LinkedList.prototype.size = function(){
   if(this.head === null) {
     return 0;
   } 
+  // lista con 1 elemento
   if(this.head.next === null) {
     return 1;
   } else {
+    // lista con mas de 1 elemento
     var num = 1;
-    var tailActual = this.head;
-    while (tailActual.next !== null) {
-      tailActual = tailActual.next;
+    var current = this.head;
+    while (current.next !== null) {
+      current = current.next;
       num++;
     }
     return num;
   }
-  // if(this.head.next !== null) {
-    
-  //   return 1 + size();
-  // } else {
-  //   return 1;
-  // }
 }
 
 
@@ -135,7 +131,21 @@ LinkedList.prototype.size = function(){
 //    sin antes tener cargada la posición 0 y 1.
 
 LinkedList.prototype.addInPos = function(pos, value){
-  
+  var node = new Node(value);
+  var size = this.size();
+  var current = this.head;
+  var count = 0;
+  do {
+    if(count === pos) {
+      var aux = current;
+      current.next = node;
+      return true;
+    }
+    count++;
+    current = current.next;
+  } while(pos<size)
+
+  return false;
 }
 
 // EJERCICIO 5
@@ -146,7 +156,10 @@ LinkedList.prototype.addInPos = function(pos, value){
 //    Lista nueva luego de aplicar el reverse: Head --> 13 --> 10 --> 4 --> 1 --> null
 
 LinkedList.prototype.reverse = function(){
- 
+  if(this.head !== null) {
+    var size = this.size();
+    
+  }
 }
 
 
@@ -177,7 +190,14 @@ LinkedList.prototype.reverse = function(){
 //    - mazoUserB = [6,9,10,3,6,4]
 
 var cardGame = function(mazoUserA, mazoUserB){
-
+  var queque = new Queue();
+  for(var a of mazoUserA) {
+    for(var b of mazoUserB) {
+      if(a === b) {
+        queque.dequeue();
+      } 
+    }
+  }
 }
 
 // ---------------
@@ -200,7 +220,25 @@ var cardGame = function(mazoUserA, mazoUserB){
 //       5
 
 var generateBST = function(array){
- 
+  
+  // for(var arr of array) {
+  //   if(arr < this.value){
+  //     if(this.left === null){
+  //       var newTree = new BinarySearchTree(arr);
+  //       this.left = newTree;
+  //     } else {
+  //       this.left.insert(arr);
+  //     }
+  //   } else {
+  //     if(this.right === null){
+  //       var newTree = new BinarySearchTree(arr);
+  //       this.right = newTree;
+  //     } else {
+  //       this.right.insert(arr);
+  //     }
+  //   }
+  // }
+  // return tree;
 }
 
 
@@ -221,8 +259,12 @@ var generateBST = function(array){
 
 
 var binarySearch = function (array, target) {
-
-  
+  for(arr in array) {
+    if(array[arr] === target) {
+      return Number(arr);
+    }
+  }
+  return -1;
 }
 
 // EJERCICIO 9
@@ -235,7 +277,20 @@ var binarySearch = function (array, target) {
 
 
 var selectionSort = function(array) {
-  
+  for (var i = 0; i < array.length; i++) {
+    let minimo = i;
+    for (var j = i + 1; j < array.length; j++) {
+        if (array[minimo] > array[j]) {
+          minimo = j; 
+        }
+    }
+    if (i !== minimo) {
+      var aux = array[i];
+      array[i] = array[minimo];
+      array[minimo] = aux;
+    }
+  }
+  return array
 }
 
 // ----- Closures -----

@@ -12,7 +12,7 @@
 
 * Variable THIS: hace referencia al objeto donde dicha función esta escrita
 
-* Hoisting:
+* Hoisting: hace referencia a reservar un espacio de memoria para las variables y las funciones.
 
 * Pasar por valor y por referencia: pasar por valor se refiere a que pasa una copia de ese valor, y pasar por referencia se refiere a que pasa por el mismo valor
 
