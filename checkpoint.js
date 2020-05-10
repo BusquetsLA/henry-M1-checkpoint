@@ -308,7 +308,9 @@ var selectionSort = function(array) {
 //    sumaDiez(11); --> Devolverá 21 (Ya que 11 + 10 = 21)
 
 function closureSum(numFijo) {
- 
+  return function(otroNum) {
+    return numFijo + otroNum;
+  }
 }
 
 // -------------------
